@@ -17,27 +17,27 @@ const routes = [
   {
     path: "/dashboard",
     name: "Dashboard",
-    redirect: "/dashboard/settings",
+    redirect: "/settings",
     component: Dashboard,
     children: [
       {
-        path: "/dashboard/settings",
+        path: "/settings",
         name: "Beállítások",
-        redirect: "/dashboard/settings/params",
+        redirect: "/params",
         component: Settings,
         children: [
           {
-            path: "/dashboard/settings/params",
+            path: "/params",
             name: "Paraméterek",
             component: Params,
           },
           {
-            path: "/dashboard/settings/fruits",
+            path: "/fruits",
             name: "Gyümölcsök",
             component: Fruits,
           },
           {
-            path: "/dashboard/settings/corrections",
+            path: "/corrections",
             name: "Korrekciók",
             component: Corrections,
           },

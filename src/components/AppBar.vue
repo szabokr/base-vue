@@ -3,22 +3,24 @@
     <v-app-bar-title>{{ this.$route.name }}</v-app-bar-title>
 
     <template v-slot:append>
-      <v-btn
-        @click="$emit('open-search-bar'), (showModal = true)"
-        icon="mdi-magnify"
-      ></v-btn>
+      <v-btn @click="openSearchBar" icon="mdi-magnify"></v-btn>
     </template>
   </v-app-bar>
 </template>
 
 <script>
+import { searchBarStore } from "@/store/SearchBarStore";
+
 export default {
-  data() {
+  setup() {
+    function openSearchBar() {
+      searchBarStore.showModal = !searchBarStore.showModal;
+      console.log(searchBarStore.showModal);
+    }
+
     return {
-      showModal: false,
+      openSearchBar,
     };
   },
 };
 </script>
-<style>
-</style>

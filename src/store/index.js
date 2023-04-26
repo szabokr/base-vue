@@ -1,4 +1,8 @@
 // Utilities
 import { createPinia } from 'pinia'
 
-export default createPinia()
+export default {
+    setup() {
+        const store = createPinia(searchBar)
+    }
+}

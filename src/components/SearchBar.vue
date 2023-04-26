@@ -1,15 +1,10 @@
 <template>
-  <v-navigation-drawer v-model="this.visible" location="right">
+  <v-navigation-drawer v-model="search" location="right">
     <v-list-item>
       <v-icon icon="mdi-magnify"></v-icon>
       Keresés
       <template v-slot:append>
-        <v-btn
-          variant="text"
-          icon="mdi-close"
-          @click="$emit('close-search-bar')"
-          @click.stop="search = !search"
-        ></v-btn>
+        <v-btn variant="text" icon="mdi-close" @click="openSearchBar"></v-btn>
       </template>
     </v-list-item>
 
@@ -28,6 +23,7 @@
 </template>
   
   <script>
+import { searchBarStore } from "@/store/SearchBarStore";
 export default {
   props: {
     visible: {
@@ -38,6 +34,18 @@ export default {
   data() {
     return {
       search: false,
+      search: this.visible,
+    };
+  },
+
+  setup() {
+    function openSearchBar() {
+      searchBarStore.showModal = !searchBarStore.showModal;
+      console.log(searchBarStore.showModal);
+    }
+
+    return {
+      openSearchBar,
     };
   },
 };

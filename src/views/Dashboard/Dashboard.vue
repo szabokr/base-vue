@@ -13,13 +13,6 @@
         @open-search-bar="search = !search"
         @click="$emit('open-search-bar')"
       ></AppBar>
-      <SearchBar
-        @open-search-bar="search = !search"
-        :visible="search"
-        @close-search-bar="search = false"
-        @search="search = false"
-      ></SearchBar>
-
       <v-main style="height: 100%">
         <router-view></router-view>
       </v-main>
@@ -41,7 +34,7 @@ export default {
       search: false,
       title: "Teszt",
       logo: "https://randomuser.me/api/portraits/men/85.jpg",
-      userPermissions: ["user", "settings"],
+      userPermissions: ["user"],
       items: [
         {
           title: "Beállítások",
