@@ -3,10 +3,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from "../views/Home.vue";
 import Dashboard from "../views/Dashboard/Dashboard.vue";
 import Settings from "../views/Dashboard/Settings/Settings.vue";
-import Parms from "../views/Dashboard/Settings/Params.vue";
+import Params from "../views/Dashboard/Settings/Params.vue";
 import Corrections from "../views/Dashboard/Settings/Corrections.vue"
 import Fruits from "../views/Dashboard/Settings/Fruits.vue";
-// import Settings from "../views/Dashboard/Settings/Parms/Index.vue";
 
 const routes = [
   {
@@ -18,27 +17,27 @@ const routes = [
   {
     path: "/dashboard",
     name: "Dashboard",
-    redirect: "/settings",
+    redirect: "/dashboard/settings",
     component: Dashboard,
     children: [
       {
-        path: "/settings",
+        path: "/dashboard/settings",
         name: "Beállítások",
-        // redirect: "/params",
+        redirect: "/dashboard/settings/params",
         component: Settings,
         children: [
           {
-            path: "/params",
+            path: "/dashboard/settings/params",
             name: "Paraméterek",
-            component: Parms,
+            component: Params,
           },
           {
-            path: "/fruits",
+            path: "/dashboard/settings/fruits",
             name: "Gyümölcsök",
             component: Fruits,
           },
           {
-            path: "/corrections",
+            path: "/dashboard/settings/corrections",
             name: "Korrekciók",
             component: Corrections,
           },

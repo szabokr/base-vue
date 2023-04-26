@@ -1,5 +1,5 @@
 <template>
-  <h1>Hello Menus</h1>
+  <h1>Hello Corrections</h1>
   <SearchBar
     :visible="search"
     @close-search-bar="search = false"

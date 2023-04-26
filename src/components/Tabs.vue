@@ -1,22 +1,13 @@
 <template>
-  <v-card>
-    <v-tabs v-model="tab" align-tabs="left">
-      <v-tab
-        v-for="tab in tabs"
-        :key="tab.path"
-        :to="tab.path"
-        exact
-        @click="selectedItem(tab)"
-      >
-        {{ tab.name }}
-      </v-tab>
-    </v-tabs>
-    <v-tabs-items>
-      <router-view :key="$route.path" />
-    </v-tabs-items>
-  </v-card>
+  <v-tabs v-model="selectedTabIndex" align-tabs="left">
+    <v-tab v-for="(tab, index) in tabs" :key="index" @click="selectTab(tab)">
+      {{ tab.name }}
+    </v-tab>
+  </v-tabs>
+
+  <router-view />
 </template>
-    
+  
   <script>
 export default {
   props: {
@@ -27,14 +18,14 @@ export default {
   },
   data() {
     return {
-      tab: "",
+      selectedTabIndex: 0,
     };
   },
   methods: {
-    selectedItem(item) {
-      this.$router.push({ name: item.router });
+    selectTab(item) {
+      this.$router.push({ name: item.name });
     },
   },
 };
 </script>
-    
+  

@@ -1,36 +1,22 @@
 <template>
-  <v-tabs v-model="tab" align-tabs="left">
-    <v-tab
-      v-for="tab in tabs"
-      :key="tab.path"
-      :to="tab.path"
-      exact
-      @click="selectedItem(tab)"
-    >
-      {{ tab.name }}
-    </v-tab>
-  </v-tabs>
-  <router-view />
+  <Tabs :tabs="tabs"></Tabs>
 </template>
+  
   <script>
+import Tabs from "@/components/Tabs.vue";
 export default {
+  components: {
+    Tabs,
+  },
   data() {
     return {
-      tab: 1,
       tabs: [
-        { name: "Paraméterek", path: "/params" },
-        { name: "Gyümölcsök", path: "/fruits" },
-        { name: "Korrekciók", path: "/corrections" },
+        { name: "Paraméterek" },
+        { name: "Gyümölcsök" },
+        { name: "Korrekciók" },
       ],
     };
-  },
-  methods: {
-    selectedItem(item) {
-      this.$router.push(item.path);
-    },
   },
 };
 </script>
   
-  <style>
-</style>
